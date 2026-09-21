@@ -1,0 +1,15 @@
+#include <stdio.h>
+struct STUDENT 
+{
+    char name[50];
+    int rno;
+    float marks;
+};
+int main()
+{
+    struct STUDENT S1;
+    S1.rno=100;
+    S1.marks=65.82;
+    printf("R.no:%d\n",S1.rno);
+    printf("Marks:%f",S1.marks);
+}
