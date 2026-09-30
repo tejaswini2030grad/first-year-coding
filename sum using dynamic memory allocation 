@@ -1,0 +1,37 @@
+#include <stdio.h>
+#include <stdlib.h> // Required for malloc and free
+
+int main() {
+    int n, i, sum = 0;
+    int *ptr;
+
+    // 1. Get the number of elements from the user
+    printf("Enter the number of elements: ");
+    scanf("%d", &n);
+
+    // 2. Dynamically allocate memory for 'n' integers
+    ptr = (int*) malloc(n * sizeof(int));
+
+    // 3. Check if the memory allocation was successful
+    if (ptr == NULL) {
+        printf("Memory allocation failed! Exiting program.\n");
+        return 1; 
+    }
+
+    // 4. Input elements from the user
+    printf("Enter %d elements:\n", n);
+    for (i = 0; i < n; i++) {
+        scanf("%d", &ptr[i]); // Can also use *(ptr + i)
+    }
+
+    // 5. Calculate the sum of the elements
+    for (i = 0; i < n; i++) {
+        sum += ptr[i];
+    }
+
+    // 6. Display the final result
+    printf("The sum of the elements is: %d\n", sum);
+
+    // 7. Always free dynamically allocated memory when done
+    free(ptr);
+    ptr = NULL; // Good practice to prevent a dangling pointer
