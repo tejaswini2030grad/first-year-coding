@@ -1,0 +1,21 @@
+#include<stdio.h>
+struct Student 
+{
+    int rollNumber,marks[3];
+    char name[100];
+};
+int main()
+{
+    struct Student s1;
+    printf("Student 1\n");
+    printf("Enter student name: \n");
+    scanf("%s",s1.name);
+    printf("Enter roll no: \n");
+    scanf("%d",&s1.rollNumber);
+    for(int i=0;i<3;i++)
+        {
+            printf("enter mark %d: \n",i+1);
+            scanf("%d",&s1.marks[i]);
+        }
+    printf("total=%d",s1.marks[0]+s1.marks[1]+s1.marks[2]);
+}
