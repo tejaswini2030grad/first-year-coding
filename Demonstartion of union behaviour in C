@@ -1,0 +1,26 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+union Data {
+    int i;
+    float f;
+    char str[100];
+};
+
+int main() {
+    union Data data;
+
+    printf("Integer: ");
+    scanf("%d", &data.i);
+    printf("data.i = %d\n", data.i);
+
+    printf("Float: ");
+    scanf("%f", &data.f);
+    printf("data.f = %f\n", data.f);
+
+    printf("String: ");
+    scanf("%s", data.str);
+    printf("data.str = %s\n", data.str);
+
+    return 0;
+}
