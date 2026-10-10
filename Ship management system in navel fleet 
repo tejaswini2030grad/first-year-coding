@@ -1,0 +1,41 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+struct Ship {
+    char name[50];
+    char type[50];
+    int year;
+};
+
+int main() {
+    int n;
+    char searchType[50];
+
+    printf("Enter number of ships: ");
+    scanf("%d", &n);
+
+    struct Ship ship[n];
+
+    for (int i = 0; i < n; i++) {
+        printf("Enter details for ship %d (name type year): ", i + 1);
+        scanf("%s %s %d", ship[i].name, ship[i].type, &ship[i].year);
+    }
+
+    printf("Enter ship type to search: ");
+    scanf("%s", searchType);
+
+    int found = 0;
+    for (int i = 0; i < n; i++) {
+        if (strcmp(ship[i].type, searchType) == 0) {
+            printf("Name of ship %d is %s\n", i + 1, ship[i].name);
+            found = 1;
+        }
+    }
+
+    if (found == 0) {
+        printf("No ships of type '%s' found in the fleet\n", searchType);
+    }
+
+    return 0;
+}
