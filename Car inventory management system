@@ -1,0 +1,49 @@
+#include <stdio.h>
+
+struct Car {
+    char make[50];
+    char model[50];
+    int year;
+};
+
+void display(struct Car c[], int n) {
+    for (int i = 0; i < n; i++) {
+        printf("%s\n", c[i].make);
+        printf("%s\n", c[i].model);
+        printf("%d\n", c[i].year);
+    }
+}
+
+void newest(struct Car c[], int n) {
+    int max = 0;
+    for (int i = 1; i < n; i++) {
+        if (c[i].year > c[max].year) {
+            max = i;
+        }
+    }
+    printf("%s %s %d\n", c[max].make, c[max].model, c[max].year);
+}
+
+int main() {
+    int n;
+    struct Car c[50];
+
+    printf("Enter number of cars: ");
+    scanf("%d", &n);
+
+    for (int i = 0; i < n; i++) {
+        printf("Enter make for car %d: ", i + 1);
+        scanf("%s", c[i].make);
+        
+        printf("Enter model for car %d: ", i + 1);
+        scanf("%s", c[i].model);
+        
+        printf("Enter year for car %d: ", i + 1);
+        scanf("%d", &c[i].year);
+    }
+
+    display(c, n);
+    newest(c, n);
+
+    return 0;
+}
