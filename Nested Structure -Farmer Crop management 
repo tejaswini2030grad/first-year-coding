@@ -1,0 +1,45 @@
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+
+#define MAX_NAME_LENGTH 50
+
+typedef struct {
+    char name[MAX_NAME_LENGTH];
+    struct {
+        int quantity;
+        float price;
+    } details;
+} Crop;
+
+int main() {
+    int n;
+
+    printf("Enter number of crops: ");
+    scanf("%d", &n);
+
+    Crop *c = malloc(n * sizeof(Crop));
+
+    for (int i = 0; i < n; i++) {
+        printf("Enter name for crop %d: ", i + 1);
+        scanf("%s", c[i].name);
+
+        printf("Enter quantity for crop %d: ", i + 1);
+        scanf("%d", &c[i].details.quantity);
+
+        printf("Enter price per unit for crop %d: ", i + 1);
+        scanf("%f", &c[i].details.price);
+    }
+
+    for (int i = 0; i < n; i++) {
+        float total = c[i].details.quantity * c[i].details.price;
+
+        printf("\nCrop Name: %s\n", c[i].name);
+        printf("Quantity: %d\n", c[i].details.quantity);
+        printf("Price per Unit: %.2f\n", c[i].details.price);
+        printf("Total Value: %.2f\n", total);
+    }
+
+    free(c);
+    return 0;
+}
