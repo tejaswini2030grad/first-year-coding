@@ -1,0 +1,31 @@
+#include <stdio.h>
+
+struct Employee {
+    char name[100];
+    int id;
+    float salary;
+};
+
+void displayEmployee(struct Employee emp) {
+    printf("Employee Details:\n");
+    printf("Name: %s\n", emp.name);
+    printf("ID: %d\n", emp.id);
+    printf("Salary: %.2f\n", emp.salary);
+}
+
+int main() {
+    struct Employee emp;
+
+    printf("Enter Employee Name: ");
+    scanf("%s", emp.name);
+
+    printf("Enter ID: ");
+    scanf("%d", &emp.id);
+
+    printf("Enter Salary: ");
+    scanf("%f", &emp.salary);
+
+    displayEmployee(emp);
+
+    return 0;
+}
